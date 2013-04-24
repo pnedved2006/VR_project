@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HeadTracker", "HeadTracker\HeadTracker.vcxproj", "{7E439813-76F9-4344-B556-E4E360E7175B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreBasicScene", "OgreBasicScene\OgreBasicScene.vcxproj", "{B89F62C8-180E-4175-B07F-28A7A48006A4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedMemoryUtils", "SharedMemoryUtils\SharedMemoryUtils.vcxproj", "{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E439813-76F9-4344-B556-E4E360E7175B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7E439813-76F9-4344-B556-E4E360E7175B}.Debug|Win32.Build.0 = Debug|Win32
+		{7E439813-76F9-4344-B556-E4E360E7175B}.Release|Win32.ActiveCfg = Release|Win32
+		{7E439813-76F9-4344-B556-E4E360E7175B}.Release|Win32.Build.0 = Release|Win32
+		{B89F62C8-180E-4175-B07F-28A7A48006A4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B89F62C8-180E-4175-B07F-28A7A48006A4}.Debug|Win32.Build.0 = Debug|Win32
+		{B89F62C8-180E-4175-B07F-28A7A48006A4}.Release|Win32.ActiveCfg = Release|Win32
+		{B89F62C8-180E-4175-B07F-28A7A48006A4}.Release|Win32.Build.0 = Release|Win32
+		{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}.Debug|Win32.Build.0 = Debug|Win32
+		{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}.Release|Win32.ActiveCfg = Release|Win32
+		{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

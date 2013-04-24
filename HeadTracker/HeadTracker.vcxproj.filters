@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\opencv245\opencv\data\lbpcascades\lbpcascade_frontalface.xml">
+      <Filter>Ressource File</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\opencv245\opencv\data\haarcascades\haarcascade_profileface.xml">
+      <Filter>Ressource File</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{234d260c-4df3-4e99-95b7-f2c3000ca669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{b9ee91a3-7ad0-45c3-8701-1a7d821ff77c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ressource File">
+      <UniqueIdentifier>{7d6ceed5-d108-4ab2-8802-9b6e9f2135bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="head_tracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SharedMemoryUtils\SharedMemoryManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\SharedMemoryUtils\SharedMemoryManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
