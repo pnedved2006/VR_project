@@ -103,13 +103,14 @@ void detectAndDisplay( Mat frame )
 	  head_center[0]=nearest_center[0];
 	  head_center[1]=nearest_center[1];
 
+	  
 	  // we store a number between -1 and 1 in the shared file
 	  // which will be better interpreted by following program 
 	  double width=(double)frame.cols;
 	  double height=(double) frame.rows;
 	  mem->writeHeadPosition(-2.0*head_center[0]/width+1,-2*(head_center[1]-height/2)/width);
   }
-  
+  circle(frame,Point(head_center[0],head_center[1]),5,Scalar(0,255,0),5);
   //-- Show what you got
   imshow( window_title, frame );
  }
