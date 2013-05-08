@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{967cb318-41aa-4d85-a0a1-e25b39d47c19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{d0e28cad-0b19-45b8-a703-c5a7130ed515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Constraints_Demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Primitives_Demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Ragdoll_Demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Terrain_Demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TriMesh_Demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Vehicle_Demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BetaGUI.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\OgreBulletApplication.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\OgreBulletGuiListener.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\OgreBulletInputListener.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\OgreBulletListener.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\Constraints_Demo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Primitives_Demo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Ragdoll_Demo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Terrain_Demo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\TriMesh_Demo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Vehicle_Demo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\BetaGUI.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\ExampleApplication.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\exampleframelistener.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\OgreBulletApplication.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\OgreBulletGuiListener.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\OgreBulletInputListener.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\OgreBulletListener.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
