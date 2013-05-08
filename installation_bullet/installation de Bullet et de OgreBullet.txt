@@ -1,0 +1,52 @@
+Installation de Bullet et OgreBullet, mode d'emploi
+Ce tuto est tiré de ce post de forum
+http://www.ogre3d.org/addonforums/viewtopic.php?f=12&t=29784&sid=faf26240edc0e5b89b79388c63f5ac04
+J'y ais simplifié beaucoup de choses. 
+
+
+
+0) En préléminaire
+- bien vérifier qu'il existe une variable d'environement OGRE_HOME qui pointe vers le dossier d'Ogre SDK
+- bien vérifier que les dossiers dans $(OGRE_HOME)\bin et $(OGRE_HOME)\lib s'appellent 
+"Debug" et "Release" et pas "debug" et "release". 
+
+1) Télécharger les sources de Bullet, depuis ce lien : 
+https://code.google.com/p/bullet/downloads/detail?name=bullet-2.81-rev2613.zip
+L'extraire sur le disque
+
+2) Créer une variable d'environement s'appelant BULLET_ROOT qui pointe vers le dossier principal de Bullet 
+(il faut pttr redémarre windows à ce moment là, je sais jamais)
+
+3) Télécharger CMake si ce n'est déjà fait
+
+4) Dans CMake : 
+"Where is the source code :" le dossier principal de Bullet
+"Where to build the binary : " On s'en fout, mais par exemple mettre $(BULLET_ROOT)\build\CMakeBuild
+ Clicker sur configure, dire oui pour le compiler visual studio 10
+ La normalement une série de propriété apparait en rouge
+
+                  TRES IMPORTANT (oublier ces deux étapes engendre des erreurs que j'ai mis des heures à piger)
+ !!!!!!!! Cocher la case en face de "USE_MSVC_RUNTIME_LIBRARY_DLL"
+ !!!!!!!! Reclicker sur configure, normalement, les propriétés rouges passent au blanc
+
+ Clicker sur generate et prier. 
+
+ 5) Dans le dossier dans lequel CMake a généré le projet (CMakeBuild pour moi), ouvrir BULLET_PHYSICS.sln
+ Compiler, en Debug et en Release
+
+ 6) Aller cherche les libs générées (qui sont dans CMakeBuild/lib) et remplacer les anciennes dans $(BULLET_ROOT)/lib.
+ On peut copier le dossier entier si on veut.
+
+7) Ensuite c'est parti pour OgreBullet (le wrapper qui fait le lien entre Bullet et Ogre). 
+Copier le dossier qui s'appelle OgreBullet sur le git sur le disque dur
+Ouvrir OgreBullet_VC08, que j'ai configuré tout comme il faut normalement
+
+8) Compiler (build only). Prier (c'est long).
+
+9) Maintenant, pour jouer avec les démos se plqcer en config release, remplacer le fichier ressources.cfg qui se trouve dans $(OGRE_HOME)/bin/Release par celui que j'ai mis sur le git. L'ouvrir, et remplacer si besoin les chemins qui y sont par les votres. (ce sont les chemins vers les textures que va utiliser la démo).
+
+10) Jouer en lancant l'appli (flèche verte sur Visual Studio)
+En fait, Visual Studio copie le fichier Dynamics_Demo.exe dans le répertoire $(OGRE_HOME)\bin\Release, et le lance à partir de là. On peut aussi lancer les démos en lançant l'exe. 
+C'est moi qui ai configuré cette copie, on la trouve dans propriétés du projet/ post build event
+
+11) Créer une variable d'environement OGREBULLET_HOME (qu'on utilisera par la suite)

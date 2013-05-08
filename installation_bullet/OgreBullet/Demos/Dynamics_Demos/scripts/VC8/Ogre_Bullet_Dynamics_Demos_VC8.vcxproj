@@ -41,6 +41,8 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\$(Configuration)</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\$(Configuration)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -60,7 +62,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>OgreMain_d.lib;ois_d.lib;OgreBulletCollisions_d.lib;OgreBulletDynamics_d.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;ConvexDecomposition_Debug.lib;LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\OgreSDK\bin\Debug;..\..\..\..\lib\$(Configuration);$(OGRE_HOME)\lib\$(Configuration);$(OGRE_HOME)\boost\lib;$(BULLET_ROOT)\build\cmakebuild\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\OgreSDK\bin\Debug;..\..\..\..\lib\$(Configuration);$(OGRE_HOME)\lib\$(Configuration);$(OGRE_HOME)\boost\lib;$(BULLET_ROOT)\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -97,7 +99,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>OgreMain.lib;ois.lib;OgreBulletCollisions.lib;OgreBulletDynamics.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;ConvexDecomposition.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\..\lib\$(Configuration);$(OGRE_HOME)\lib\$(Configuration);$(OGRE_HOME)\boost\lib;$(BULLET_ROOT)\build\cmakebuild\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\OgreSDK\bin\Debug;..\..\..\..\lib\$(Configuration);$(OGRE_HOME)\lib\$(Configuration);$(OGRE_HOME)\boost\lib;$(BULLET_ROOT)\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
