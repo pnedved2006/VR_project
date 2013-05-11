@@ -1,4 +1,4 @@
-﻿Build started 29/04/2013 17:33:56.
+﻿Build started 08/05/2013 18:03:38.
      1>Project "C:\Users\pcSamuel\Documents\GitHub\VR_project\HeadTracker\HeadTracker.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\HeadTracker.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -27,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.68
+Time Elapsed 00:00:02.94

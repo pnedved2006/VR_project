@@ -1,7 +1,7 @@
-﻿Build started 24/04/2013 11:51:23.
+﻿Build started 06/05/2013 15:09:51.
      1>Project "C:\Users\pcSamuel\Documents\GitHub\VR_project\SharedMemoryUtils\SharedMemoryUtils.vcxproj" on node 4 (build target(s)).
      1>InitializeBuildStatus:
-         Touching "Release\SharedMemoryUtils.unsuccessfulbuild".
+         Creating "Release\SharedMemoryUtils.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt SharedMemoryManager.cpp
          SharedMemoryManager.cpp
@@ -22,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.70
+Time Elapsed 00:00:14.13

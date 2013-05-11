@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreBasicScene", "OgreBasic
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedMemoryUtils", "SharedMemoryUtils\SharedMemoryUtils.vcxproj", "{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasicAppWithBullet", "BasicAppWithBullet\BasicAppWithBullet.vcxproj", "{7FFD1DBC-E86B-423F-A947-1A3FA5B84359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -25,6 +27,10 @@ Global
 		{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}.Debug|Win32.Build.0 = Debug|Win32
 		{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}.Release|Win32.ActiveCfg = Release|Win32
 		{E876ADA2-D276-46FD-9E64-CA1EA2E27B0D}.Release|Win32.Build.0 = Release|Win32
+		{7FFD1DBC-E86B-423F-A947-1A3FA5B84359}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7FFD1DBC-E86B-423F-A947-1A3FA5B84359}.Debug|Win32.Build.0 = Debug|Win32
+		{7FFD1DBC-E86B-423F-A947-1A3FA5B84359}.Release|Win32.ActiveCfg = Release|Win32
+		{7FFD1DBC-E86B-423F-A947-1A3FA5B84359}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
