@@ -6,6 +6,8 @@ BasicSceneApplication::BasicSceneApplication(void)
 {
 	mem = new SharedMemoryManager();
 	scene_center=new Ogre::Vector3(2000,50,1700);
+	time=0;
+	amplitude =300;
 }
 //-------------------------------------------------------------------------------------
 BasicSceneApplication::~BasicSceneApplication(void)
@@ -71,12 +73,19 @@ void BasicSceneApplication::createScene(void)
 
 	mSceneMgr->setSkyDome(true, "Examples/CloudySky", 5, 8);
     
+	
+
 
 	 // Create Crossbow
 	Ogre::Entity* crossbow= mSceneMgr->createEntity("Crossbow", "crossbow.mesh");
 	crossbowNode = mSceneMgr->getRootSceneNode()->createChildSceneNode( "CrossbowNode", *scene_center+Ogre::Vector3(0,-25,450) );
 	crossbowNode->attachObject( crossbow);
 	crossbowNode->scale(Ogre::Vector3(5,5,5));
+
+	// Create Ninja
+		Ogre::Entity* entNinja = mSceneMgr->createEntity("ninja", "ninja.mesh");
+		ninjaNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("HeadNode", (*scene_center) + Ogre::Vector3(-500,0,-700));
+		ninjaNode->attachObject(entNinja);
 
 	const int nb_grass =100;
 	const int nb_tree =4;
@@ -94,7 +103,7 @@ void BasicSceneApplication::createScene(void)
 	Ogre::Entity* entBirdD[nb_bird];
 	Ogre::SceneNode* birdENode[nb_bird];
 	Ogre::Entity* entBirdE[nb_bird];
-	int height =70;
+	int height =80;
 	int width =0;
 	int depth =0;
 	int h ;
@@ -139,11 +148,7 @@ void BasicSceneApplication::createScene(void)
 		birdENode[j]->attachObject(entBirdE[j]);
 	}
 
-	// Create Ninja
-		Ogre::Entity* entNinja = mSceneMgr->createEntity("ninja", "ninja.mesh");
-		ninjaNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("HeadNode", *scene_center+Ogre::Vector3(0,0,-500));
-		ninjaNode->attachObject(entNinja);
-
+	
 
 	// generating Grasses
 	
@@ -222,6 +227,10 @@ bool BasicSceneApplication::frameStarted(const Ogre::FrameEvent& evt){
 	Ogre::Vector3 cam_dir=mCamera->getRealDirection();
 	Ogre::Quaternion cam_rot=mCamera->getRealOrientation();
 	Ogre::Vector3 cam_up=mCamera->getRealUp();
+
+	time=time +evt.timeSinceLastFrame+1;
+	//mCamera->setPosition(Ogre::Vector3(sin(time/3)*amplitude,0,0));
+	ninjaNode->setPosition((*scene_center)+Ogre::Vector3(sin(double(time/100))*amplitude,0,-300));
 	
 	// positionate the crossbow (for the moment in the center of the screen)
 	crossbowNode->setPosition(cam_pos-cam_up+3*cam_dir);

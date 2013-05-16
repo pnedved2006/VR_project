@@ -1,7 +1,7 @@
-﻿La génération a démarré 16.05.2013 09:44:50.
+﻿La génération a démarré 16.05.2013 19:09:45.
      1>Projet "C:\Users\SaraNaomi\Documents\vr_project\VR_project\OgreBasicScene\OgreBasicScene.vcxproj" sur le nœud 2 (build cible(s)).
      1>InitializeBuildStatus:
-         Mise à jour de l'horodatage "Debug\OgreBasicScene.unsuccessfulbuild".
+         Création de "Debug\OgreBasicScene.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Users\SaraNaomi\Documents\vr_project\VR_project\\SharedMemoryUtils /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\include" /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\boost" /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\Samples\Common\include" /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\include\OGRE" /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\include\OIS" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt BasicSceneApplication.cpp
          BasicSceneApplication.cpp
@@ -3592,15 +3592,15 @@
                      _Traits=std::char_traits<char>,
                      _Ax=std::allocator<char>
                  ]
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(35): warning C4305: 'argument' : troncation de 'double' à 'const Ogre::Real'
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(35): warning C4305: 'argument' : troncation de 'double' à 'const Ogre::Real'
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(41): warning C4305: 'argument' : troncation de 'double' à 'float'
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(41): warning C4305: 'argument' : troncation de 'double' à 'float'
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(41): warning C4305: 'argument' : troncation de 'double' à 'float'
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(42): warning C4305: 'argument' : troncation de 'double' à 'float'
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(42): warning C4305: 'argument' : troncation de 'double' à 'float'
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(42): warning C4305: 'argument' : troncation de 'double' à 'float'
-     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(191): warning C4305: 'argument' : troncation de 'double' à 'Ogre::Real'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(37): warning C4305: 'argument' : troncation de 'double' à 'const Ogre::Real'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(37): warning C4305: 'argument' : troncation de 'double' à 'const Ogre::Real'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(43): warning C4305: 'argument' : troncation de 'double' à 'float'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(43): warning C4305: 'argument' : troncation de 'double' à 'float'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(43): warning C4305: 'argument' : troncation de 'double' à 'float'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(44): warning C4305: 'argument' : troncation de 'double' à 'float'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(44): warning C4305: 'argument' : troncation de 'double' à 'float'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(44): warning C4305: 'argument' : troncation de 'double' à 'float'
+     1>c:\users\saranaomi\documents\vr_project\vr_project\ogrebasicscene\basicsceneapplication.cpp(196): warning C4305: 'argument' : troncation de 'double' à 'Ogre::Real'
        ManifestResourceCompile:
          Toutes les sorties sont à jour.
        Link:
@@ -3625,4 +3625,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:39.93
+Temps écoulé 00:00:09.92
