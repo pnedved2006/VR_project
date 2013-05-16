@@ -70,18 +70,115 @@ void BasicSceneApplication::createScene(void)
 	mTerrainGroup->freeTemporaryResources();
 
 	mSceneMgr->setSkyDome(true, "Examples/CloudySky", 5, 8);
-    // Create an Entity
-    Ogre::Entity* ogreHead = mSceneMgr->createEntity("Head", "ninja.mesh");
- 
-	
-    // Create a SceneNode and attach the Entity to it
-    Ogre::SceneNode* headNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("HeadNode", *scene_center+Ogre::Vector3(500,-50,-700));
-    headNode->attachObject(ogreHead);
+    
 
+	 // Create Crossbow
 	Ogre::Entity* crossbow= mSceneMgr->createEntity("Crossbow", "crossbow.mesh");
 	crossbowNode = mSceneMgr->getRootSceneNode()->createChildSceneNode( "CrossbowNode", *scene_center+Ogre::Vector3(0,-25,450) );
 	crossbowNode->attachObject( crossbow);
 	crossbowNode->scale(Ogre::Vector3(5,5,5));
+
+	const int nb_grass =100;
+	const int nb_tree =4;
+	const int nb_bird=10;
+	//Generating birds
+	
+	
+	Ogre::SceneNode* birdANode[nb_bird];
+	Ogre::Entity* entBirdA[nb_bird];
+	Ogre::SceneNode* birdBNode[nb_bird];
+	Ogre::Entity* entBirdB[nb_bird];
+	Ogre::SceneNode* birdCNode[nb_bird];
+	Ogre::Entity* entBirdC[nb_bird];
+	Ogre::SceneNode* birdDNode[nb_bird];
+	Ogre::Entity* entBirdD[nb_bird];
+	Ogre::SceneNode* birdENode[nb_bird];
+	Ogre::Entity* entBirdE[nb_bird];
+	int height =70;
+	int width =0;
+	int depth =0;
+	int h ;
+	int w ;
+	int d ;
+
+	for(int j=0; j<nb_bird; j++){
+		Ogre::String num = Ogre::StringConverter::toString(j);
+		h = height + (rand()%20);
+		w = width + (int)pow((double)(-1),j)*(rand()%60);
+		d = depth + 50*(4+(rand()%5));
+		entBirdA[j] = mSceneMgr->createEntity("oiA"+num, "birdsdove_Figur.mesh");
+		birdANode[j] = mSceneMgr->getRootSceneNode()->createChildSceneNode("birdANode"+num,*scene_center+Ogre::Vector3(w,h,d));
+		birdANode[j]->attachObject(entBirdA[j]);
+
+		h = height + (rand()%20);
+		w = width + (int)pow((double)(-1),j)*(rand()%60);
+		d = depth + 50*(4+(rand()%5));
+		entBirdB[j] = mSceneMgr->createEntity("oiB"+num, "birdscanadian_g.mesh");
+		birdBNode[j] = mSceneMgr->getRootSceneNode()->createChildSceneNode("birdBNode"+num,*scene_center+Ogre::Vector3(w,h,d));
+		birdBNode[j]->attachObject(entBirdB[j]);
+
+		h = height + (rand()%20);
+		w = width + (int)pow((double)(-1),j)*(rand()%60);
+		d = depth + 50*(4+(rand()%5));
+		entBirdC[j] = mSceneMgr->createEntity("oiC"+num, "birdsmallard_Fi.mesh");
+		birdCNode[j] = mSceneMgr->getRootSceneNode()->createChildSceneNode("birdCNode"+num,*scene_center+Ogre::Vector3(w,h,d));
+		birdCNode[j]->attachObject(entBirdC[j]);
+
+		h = height + (rand()%20);
+		w = width + (int)pow((double)(-1),j)*(rand()%60);
+		d = depth + 50*(4+(rand()%5));
+		entBirdD[j] = mSceneMgr->createEntity("oiD"+num, "birdsbald_eagle.mesh");
+		birdDNode[j] = mSceneMgr->getRootSceneNode()->createChildSceneNode("birdDNode"+num,*scene_center+Ogre::Vector3(w,h,d));
+		birdDNode[j]->attachObject(entBirdD[j]);
+
+		h = height + (rand()%20);
+		w = width + (int)pow((double)(-1),j)*(rand()%60);
+		d = depth + 50*(4+(rand()%5));
+		entBirdE[j] = mSceneMgr->createEntity("oiE"+num, "birdsgull_Figur.mesh");
+		birdENode[j] = mSceneMgr->getRootSceneNode()->createChildSceneNode("birdENode"+num,*scene_center+Ogre::Vector3(w,h,d));
+		birdENode[j]->attachObject(entBirdE[j]);
+	}
+
+	// Create Ninja
+		Ogre::Entity* entNinja = mSceneMgr->createEntity("ninja", "ninja.mesh");
+		ninjaNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("HeadNode", *scene_center+Ogre::Vector3(0,0,-500));
+		ninjaNode->attachObject(entNinja);
+
+
+	// generating Grasses
+	
+	
+	Ogre::SceneNode* grassNode[nb_grass];
+	Ogre::Entity* entGrass[nb_grass];
+
+	Ogre::Entity* entTree[nb_tree];
+	Ogre::SceneNode* treeNode[nb_tree];
+	
+	
+	int l=0;
+	for(int k=0; k<nb_grass; k++){
+
+	int w = (int)pow((double)(-1),k)*(rand()%200);
+		int h= -5;
+		int d = 10 + (rand()%450);
+		Ogre::String num = Ogre::StringConverter::toString(k);
+		entGrass[k] = mSceneMgr->createEntity("grass"+num, "birdsobjObject0.mesh");
+		grassNode[k] = mSceneMgr->getRootSceneNode()->createChildSceneNode("grassNode"+num,*scene_center+Ogre::Vector3(w,h,d));
+		grassNode[k]->attachObject(entGrass[k]);
+	}
+
+	// Create trees
+	for (int l=0; l<nb_tree; l++){
+		int w = (int)pow((double)(-1),l)*(rand()%200);
+		int h= 5;
+		int d = 10 + (rand()%450);
+		Ogre::String num = Ogre::StringConverter::toString(l);
+			entTree[l] = mSceneMgr->createEntity("tree"+num, "birdsMtree1.mesh");
+			treeNode[l] = mSceneMgr->getRootSceneNode()->createChildSceneNode("TreeNode"+num,*scene_center+Ogre::Vector3(w,h,d));
+			treeNode[l]->attachObject(entTree[l]);
+			
+	}
+
 }
 
 void BasicSceneApplication::createCamera(){
