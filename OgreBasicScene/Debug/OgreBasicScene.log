@@ -1,7 +1,7 @@
-﻿La génération a démarré 16.05.2013 02:39:44.
+﻿La génération a démarré 16.05.2013 09:44:50.
      1>Projet "C:\Users\SaraNaomi\Documents\vr_project\VR_project\OgreBasicScene\OgreBasicScene.vcxproj" sur le nœud 2 (build cible(s)).
      1>InitializeBuildStatus:
-         Création de "Debug\OgreBasicScene.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+         Mise à jour de l'horodatage "Debug\OgreBasicScene.unsuccessfulbuild".
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Users\SaraNaomi\Documents\vr_project\VR_project\\SharedMemoryUtils /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\include" /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\boost" /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\Samples\Common\include" /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\include\OGRE" /I"C:\Users\SaraNaomi\Documents\OgreSDK_vc10_v1-8-1\Ogre_src\include\OIS" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt BasicSceneApplication.cpp
          BasicSceneApplication.cpp
@@ -3625,4 +3625,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:09.53
+Temps écoulé 00:00:39.93
