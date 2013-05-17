@@ -12,13 +12,15 @@ int main(int argc, char * argv[]){
 	// write head position (2 numbers between 0 and 1) in the shared memory
 	mem->writeHeadPosition(0.1,0.3);
 	// write crossbow orientation (4 doubles, if we use the system of Ogre)
-	mem->writeCrossBowOrientation(0.1,0.2,0.3,0.4);
+	//mem->writeCrossBowOrientation(0.1,0.2,0.3,0.4);
 	
 	// read head position every 200ms
+	double alpha[4]={0,0,0,0};
 	while(true)
     {
-		double * tab_head=mem->readHeadPosition();
-		cout<<"position de la tete :"<<tab_head[0]<<","<<tab_head[1]<<"\n";
+		alpha[0]++;
+		mem->writeCrossBowOrientation(alpha);
+		cout<<alpha[0]<<"\n";
 		Sleep(200);
     }
 

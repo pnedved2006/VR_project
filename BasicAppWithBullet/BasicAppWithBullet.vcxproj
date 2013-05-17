@@ -61,7 +61,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>include;$(OGRE_HOME)\include;$(OGRE_HOME)\include\OIS;$(OGRE_HOME)\include\OGRE;$(OGRE_HOME)\Samples\Common\include;$(OGRE_HOME)\boost;$(BULLET_ROOT)\src;$(OGREBULLET_HOME)\Dynamics\include;$(OGREBULLET_HOME)\Collisions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;$(SolutionDir)\SharedMemoryUtils;$(OGRE_HOME)\include;$(OGRE_HOME)\include\OIS;$(OGRE_HOME)\include\OGRE;$(OGRE_HOME)\Samples\Common\include;$(OGRE_HOME)\boost;$(BULLET_ROOT)\src;$(OGREBULLET_HOME)\Dynamics\include;$(OGREBULLET_HOME)\Collisions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -97,7 +97,7 @@
       <StringPooling>true</StringPooling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointModel>Fast</FloatingPointModel>
-      <AdditionalIncludeDirectories>include;$(OGRE_HOME)\include;$(OGRE_HOME)\include\OIS;$(OGRE_HOME)\include\OGRE;$(OGRE_HOME)\Samples\Common\include;$(OGRE_HOME)\boost;$(BULLET_ROOT)\src;$(OGREBULLET_HOME)\Dynamics\include;$(OGREBULLET_HOME)\Collisions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;$(SolutionDir)\SharedMemoryUtils;$(OGRE_HOME)\include;$(OGRE_HOME)\include\OIS;$(OGRE_HOME)\include\OGRE;$(OGRE_HOME)\Samples\Common\include;$(OGRE_HOME)\boost;$(BULLET_ROOT)\src;$(OGREBULLET_HOME)\Dynamics\include;$(OGREBULLET_HOME)\Collisions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -114,11 +114,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\SharedMemoryUtils\SharedMemoryManager.h" />
     <ClInclude Include="include\BaseApplication.h" />
     <ClInclude Include="include\BasicAppWithBullet.h" />
     <ClInclude Include="res\Resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\SharedMemoryUtils\SharedMemoryManager.cpp" />
     <ClCompile Include="src\BaseApplication.cpp" />
     <ClCompile Include="src\BasicAppWithBullet.cpp" />
   </ItemGroup>

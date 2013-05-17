@@ -53,13 +53,17 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\SharedMemoryUtils;$(OPENCV_INCLUDE)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ARUCO_INCLUDE);$(SolutionDir)\SharedMemoryUtils;$(OPENCV_INCLUDE)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$OPENCV_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ARUCO_LIB)\debug;$OPENCV_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>aruco124.lib;arucofidmarkersd.obj;boardd.obj;boarddetectord.obj;cameraparametersd.obj;cvdrawingutilsd.obj;markerd.obj;markerdetectord.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)$(TargetFileName)" "$(OPENCV_DIR)\bin"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -70,16 +74,19 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\SharedMemoryUtils;$(OPENCV_INCLUDE)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ARUCO_INCLUDE);$(SolutionDir)\SharedMemoryUtils;$(OPENCV_INCLUDE)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(OPENCV_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_core245.lib;opencv_imgproc245.lib;opencv_highgui245.lib;opencv_ml245.lib;opencv_video245.lib;opencv_features2d245.lib;opencv_calib3d245.lib;opencv_objdetect245.lib;opencv_contrib245.lib;opencv_legacy245.lib;opencv_flann245.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ARUCO_LIB)\release;$(OPENCV_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>aruco124.lib;arucofidmarkers.obj;board.obj;boarddetector.obj;cameraparameters.obj;cvdrawingutils.obj;marker.obj;markerdetector.obj;opencv_core245.lib;opencv_imgproc245.lib;opencv_highgui245.lib;opencv_ml245.lib;opencv_video245.lib;opencv_features2d245.lib;opencv_calib3d245.lib;opencv_objdetect245.lib;opencv_contrib245.lib;opencv_legacy245.lib;opencv_flann245.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)$(TargetFileName)" "$(OPENCV_DIR)\bin"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\SharedMemoryUtils\SharedMemoryManager.cpp" />

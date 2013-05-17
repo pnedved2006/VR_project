@@ -18,8 +18,7 @@ public:
 	void writeFile(double * tab);
 
 	void writeHeadPosition(double x, double y);
-	void writeCrossBowOrientation(double w, double x, double y, double z);
+	void writeCrossBowOrientation(double orientation[4]);
 	double * readHeadPosition();
 	double * readCrossBowOrientation();
 };
-

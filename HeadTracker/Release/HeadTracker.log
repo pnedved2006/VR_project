@@ -1,25 +1,64 @@
-﻿Build started 08/05/2013 18:03:38.
+﻿Build started 17/05/2013 22:31:08.
      1>Project "C:\Users\pcSamuel\Documents\GitHub\VR_project\HeadTracker\HeadTracker.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\HeadTracker.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Users\pcSamuel\Documents\GitHub\VR_project\\SharedMemoryUtils /IC:\opencv245\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt head_tracker.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\aruco-1.2.4\include" /IC:\Users\pcSamuel\Documents\GitHub\VR_project\\SharedMemoryUtils /IC:\opencv245\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt head_tracker.cpp
          head_tracker.cpp
-     1>head_tracker.cpp(86): warning C4018: '<' : signed/unsigned mismatch
-     1>head_tracker.cpp(97): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>head_tracker.cpp(97): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>head_tracker.cpp(98): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>head_tracker.cpp(98): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>head_tracker.cpp(113): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>head_tracker.cpp(113): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>c:\aruco-1.2.4\include\cameraparameters.h(58): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(64): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(79): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(82): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(86): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(90): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(107): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(119): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(125): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\cameraparameters.h(126): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\marker.h(76): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\marker.h(83): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\marker.h(88): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\marker.h(100): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\markerdetector.h(86): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\markerdetector.h(97): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\markerdetector.h(163): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\markerdetector.h(226): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\markerdetector.h(246): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\markerdetector.h(269): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\markerdetector.h(274): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(89): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(92): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(108): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(115): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(118): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(143): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(155): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(160): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\board.h(163): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\boarddetector.h(83): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\boarddetector.h(108): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\aruco-1.2.4\include\boarddetector.h(109): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>head_tracker.cpp(106): warning C4018: '<' : signed/unsigned mismatch
+     1>head_tracker.cpp(117): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>head_tracker.cpp(117): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>head_tracker.cpp(118): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>head_tracker.cpp(118): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>head_tracker.cpp(133): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>head_tracker.cpp(133): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>head_tracker.cpp(138): warning C4305: 'argument' : truncation from 'double' to 'float'
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\opencv245\opencv\build\x86\vc10\lib opencv_core245.lib opencv_imgproc245.lib opencv_highgui245.lib opencv_ml245.lib opencv_video245.lib opencv_features2d245.lib opencv_calib3d245.lib opencv_objdetect245.lib opencv_contrib245.lib opencv_legacy245.lib opencv_flann245.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\HeadTracker.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.lib" /MACHINE:X86 Release\SharedMemoryManager.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\aruco-1.2.4\lib\release" /LIBPATH:C:\opencv245\opencv\build\\lib aruco124.lib arucofidmarkers.obj board.obj boarddetector.obj cameraparameters.obj cvdrawingutils.obj marker.obj markerdetector.obj opencv_core245.lib opencv_imgproc245.lib opencv_highgui245.lib opencv_ml245.lib opencv_video245.lib opencv_features2d245.lib opencv_calib3d245.lib opencv_objdetect245.lib opencv_contrib245.lib opencv_legacy245.lib opencv_flann245.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\HeadTracker.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.lib" /MACHINE:X86 Release\SharedMemoryManager.obj
          Release\head_tracker.obj
+            Creating library C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.lib and object C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.exp
          Generating code
          Finished generating code
          HeadTracker.vcxproj -> C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.exe
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.exe;#1" /manifest Release\HeadTracker.exe.intermediate.manifest
+       PostBuildEvent:
+         copy "C:\Users\pcSamuel\Documents\GitHub\VR_project\Release\HeadTracker.exe" "C:\opencv245\opencv\build\\bin"
+         :VCEnd
+                 1 fichier(s) copié(s).
        FinalizeBuildStatus:
          Deleting file "Release\HeadTracker.unsuccessfulbuild".
          Touching "Release\HeadTracker.lastbuildstate".
@@ -27,4 +66,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.94
+Time Elapsed 00:00:01.90

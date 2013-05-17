@@ -236,6 +236,9 @@ bool BasicSceneApplication::frameStarted(const Ogre::FrameEvent& evt){
 	crossbowNode->setPosition(cam_pos-cam_up+3*cam_dir);
 	crossbowNode->setOrientation(cam_rot);
 	crossbowNode->rotate(Ogre::Quaternion(sqrt(0.5),0,-sqrt(0.5),0));
+	double * quat=mem->readCrossBowOrientation();
+	Ogre::Quaternion quat2=Ogre::Quaternion(quat[0],quat[1],quat[2],quat[3]);
+	crossbowNode->setOrientation(quat2);
 	return true;
 }
 

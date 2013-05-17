@@ -1,5 +1,5 @@
-﻿Build started 09/05/2013 16:27:59.
-     1>Project "C:\Users\pcSamuel\Documents\GitHub\VR_project\SharedMemoryUtils\SharedMemoryUtils.vcxproj" on node 3 (build target(s)).
+﻿Build started 17/05/2013 16:12:24.
+     1>Project "C:\Users\pcSamuel\Documents\GitHub\VR_project\SharedMemoryUtils\SharedMemoryUtils.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\SharedMemoryUtils.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -23,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:08.16
+Time Elapsed 00:00:03.80

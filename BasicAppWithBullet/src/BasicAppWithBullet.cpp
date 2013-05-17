@@ -8,7 +8,9 @@ BasicAppWithBullet::BasicAppWithBullet(void)
 	timeSinceLastBall=Ogre::Real(0.0f);
 	timeSinceBeginning=Ogre::Real(0.0f);
 	timeSinceLastTarget=Ogre::Real(0.0f);
+	scene_center=new Ogre::Vector3(0,0,0);
 	score=0;
+	mem=new SharedMemoryManager();
 }
 //-------------------------------------------------------------------------------------
 BasicAppWithBullet::~BasicAppWithBullet(void)
@@ -33,6 +35,7 @@ BasicAppWithBullet::~BasicAppWithBullet(void)
     delete mWorld->getDebugDrawer();
     mWorld->setDebugDrawer(0);
     delete mWorld;
+	delete mem;
 }
 
 //-------------------------------------------------------------------------------------
@@ -62,7 +65,7 @@ void BasicAppWithBullet::createScene(void)
     mBodies.push_back(defaultPlaneBody);
 
 	// build the target
-	Entity *target = mSceneMgr->createEntity(
+	Ogre::Entity *target = mSceneMgr->createEntity(
         "Target",
         "target.mesh");            
     target->setCastShadows(true);
@@ -86,7 +89,7 @@ void BasicAppWithBullet::createScene(void)
                                0.9f,         // dynamic body friction
                                0.0f,          // dynamic bodymass
 							   Ogre::Vector3(0,10,0),    // starting position of the box
-                               Quaternion(0.7,0.7,0,0));// orientation of the box
+                               Ogre::Quaternion(0.7,0.7,0,0));// orientation of the box
 	targetBody->enableActiveState();
     targetBody->setKinematicObject(true);
     targetBody->disableDeactivation();
@@ -104,16 +107,23 @@ void BasicAppWithBullet::createScene(void)
 	
 	// create a sky
 	mSceneMgr->setSkyDome(true, "Examples/CloudySky", 5, 8);
+
+	Ogre::Entity* crossbow= mSceneMgr->createEntity("Crossbow", "crossbow.mesh");
+	crossbowNode = mSceneMgr->getRootSceneNode()->createChildSceneNode( "CrossbowNode", Ogre::Vector3(0,8,30) );
+	crossbowNode->attachObject( crossbow);
+	crossbowNode->setScale(4,4,4);
 }
 
 void BasicAppWithBullet::createCamera(void){
 	BaseApplication::createCamera();
 	mCamera->setPosition(Ogre::Vector3(0,10,30));
 	mCamera->lookAt(Ogre::Vector3(0,10,0));
+	mCamera->setNearClipDistance(0.1);
 }
 
 void BasicAppWithBullet::createFrameListener(void){
 	BaseApplication::createFrameListener();
+		
 	mNumEntitiesInstanced = 0; // how many shapes are created
 
 	// Start Bullet
@@ -137,9 +147,53 @@ bool BasicAppWithBullet::frameRenderingQueued(const Ogre::FrameEvent& evt)
     return ret;
 }
 
-bool BasicAppWithBullet::frameStarted(const FrameEvent& evt)
+bool BasicAppWithBullet::frameStarted(const Ogre::FrameEvent& evt)
        {
-          bool ret = BaseApplication::frameStarted(evt);
+		   bool ret = BaseApplication::frameStarted(evt);
+		   // update camera and crossbow position and orientation
+		   	Ogre::Vector3 cam_pos=mCamera->getRealPosition();
+			Ogre::Vector3 cam_dir=mCamera->getRealDirection();
+			Ogre::Quaternion cam_rot=mCamera->getRealOrientation();
+			Ogre::Vector3 cam_up=mCamera->getRealUp();
+			
+			// positionate the crossbow (for the moment in the center of the screen)
+			crossbowNode->setPosition(cam_pos-1.5*cam_up+9*cam_dir);
+
+			double * quat=mem->readCrossBowOrientation();
+			Ogre::String blabla="Quaternion "+Ogre::StringConverter::toString(Ogre::Real(quat[0]))+" , "+Ogre::StringConverter::toString(Ogre::Real(quat[1]))+" , "+Ogre::StringConverter::toString(Ogre::Real(quat[2]))+", "+Ogre::StringConverter::toString(Ogre::Real(quat[3])); 
+			Ogre::Real realtest=Ogre::Real(quat[0]);
+			crossbowNode->rotate(Ogre::Quaternion(sqrt(0.5),0,-sqrt(0.5),0));
+			std::string s;
+			{
+				std::ostringstream oss;
+				oss << quat[0]<<"\n";
+				s = oss.str();
+				size_t len=s.length();
+				LPSTR str2=new char[len+1];
+				s._Copy_s(str2,len,len);
+				str2[len]='\0';
+				OutputDebugString(str2);
+			}
+			
+			
+			Ogre::Quaternion quat2=Ogre::Quaternion(quat[0],quat[1],quat[2],quat[3]);
+			crossbowNode->setOrientation(quat2);
+
+			/*
+			crossbowNode->setOrientation(cam_rot);
+			crossbowNode->rotate(Ogre::Quaternion(sqrt(0.5),0,-sqrt(0.5),0));
+			double * quat=mem->readCrossBowOrientation();
+			double val=quat[0]*quat[0]+quat[1]*quat[1]+quat[2]*quat[2]+quat[3]*quat[3];
+			if (val<1.1 && val >0.95){
+				Quaternion rotateC=Quaternion(quat[0],quat[1],quat[2],quat[3]);
+				crossbowNode->rotate(rotateC);
+			}
+			*/
+
+
+
+
+          
           mWorld->stepSimulation(evt.timeSinceLastFrame);   // update Bullet Physics animation
 
 		  timeSinceBeginning+=evt.timeSinceLastFrame;
@@ -156,10 +210,10 @@ bool BasicAppWithBullet::frameStarted(const FrameEvent& evt)
 
 		  if(timeSinceLastTarget>0.15 && timeSinceBeginning>1){
 			  for (int i=0;i<times_to_live.size();i++){
-				  	String nameNode="SphereNode"+StringConverter::toString(times_to_live[i].id);
-					Vector3 pos=mSceneMgr->getSceneNode(nameNode)->getPosition();
+				  	Ogre::String nameNode="SphereNode"+Ogre::StringConverter::toString(times_to_live[i].id);
+					Ogre::Vector3 pos=mSceneMgr->getSceneNode(nameNode)->getPosition();
 					if (pos.z>0 && pos.z<3){
-						Vector3 ecart=pos-nodeTarget->getPosition();
+						Ogre::Vector3 ecart=pos-nodeTarget->getPosition();
 						ecart.z=0;
 						double dist=ecart.length();
 						if (dist<2)
@@ -173,29 +227,30 @@ bool BasicAppWithBullet::frameStarted(const FrameEvent& evt)
 		  }
 
 		  	btTransform btt=targetBody->getBulletRigidBody()->getWorldTransform();
-			btt.setOrigin(btt.getOrigin()+btVector3(0.02*Math::Cos(timeSinceBeginning/2),0,0));
+			btt.setOrigin(btt.getOrigin()+btVector3(0.02*Ogre::Math::Cos(timeSinceBeginning/2),0,0));
 			targetBody->getBulletRigidBody()->getMotionState()->setWorldTransform(btt);
 			if (timeSinceBeginning>1){
-			String nameNode="SphereNode"+StringConverter::toString(times_to_live[0].id);
+			Ogre::String nameNode="SphereNode"+Ogre::StringConverter::toString(times_to_live[0].id);
 			
-			mInfoLabel->setCaption(StringConverter::toString(Ogre::Real(score)));
+			//mInfoLabel->setCaption(StringConverter::toString(Ogre::Real(score)));
 			}
+			mInfoLabel->setCaption(blabla);
 			mTrayMgr->moveWidgetToTray(mInfoLabel, OgreBites::TL_TOP, 0);
 			mInfoLabel->show();
 		  return ret;
        }
  
- bool BasicAppWithBullet::frameEnded(const FrameEvent& evt)
+ bool BasicAppWithBullet::frameEnded(const Ogre::FrameEvent& evt)
        {
           bool ret = BaseApplication::frameEnded(evt);
           mWorld->stepSimulation(evt.timeSinceLastFrame);   // update Bullet Physics animation
           return ret;
 		  if(timeSinceLastTarget>0.15 && timeSinceBeginning>1){
 			  for (int i=0;i<times_to_live.size();i++){
-				  	String nameNode="SphereNode"+StringConverter::toString(times_to_live[i].id);
-					Vector3 pos=mSceneMgr->getSceneNode(nameNode)->getPosition();
+				  	Ogre::String nameNode="SphereNode"+Ogre::StringConverter::toString(times_to_live[i].id);
+					Ogre::Vector3 pos=mSceneMgr->getSceneNode(nameNode)->getPosition();
 					if (pos.z>0 && pos.z<3){
-						Vector3 ecart=pos-nodeTarget->getPosition();
+						Ogre::Vector3 ecart=pos-nodeTarget->getPosition();
 						ecart.z=0;
 						double dist=ecart.length();
 						if (dist<2)
@@ -222,26 +277,26 @@ void BasicAppWithBullet::throwBall(){
 	// creating a DynamicShape without name
 	// a rigid body called SphereRIgid
 	//
-			Vector3 size = Vector3::ZERO;   // size of the box
+			Ogre::Vector3 size = Ogre::Vector3::ZERO;   // size of the box
              // starting position of the ball
-			Vector3 position = (mCamera->getDerivedPosition() - mCamera->getDerivedUp());
+			Ogre::Vector3 position = (mCamera->getDerivedPosition() - mCamera->getDerivedUp());
              
 			 // create an ordinary, Ogre mesh with texture
-             Entity *entity = mSceneMgr->createEntity(
-                   "Sphere" + StringConverter::toString(mNumEntitiesInstanced),
+             Ogre::Entity *entity = mSceneMgr->createEntity(
+                   "Sphere" + Ogre::StringConverter::toString(mNumEntitiesInstanced),
                    "rock.mesh");            
              entity->setCastShadows(true);
 			 
              
 			 // we need the bounding box of the box to be able to set the size of the Bullet-box
-             AxisAlignedBox boundingB = entity->getBoundingBox();
+             Ogre::AxisAlignedBox boundingB = entity->getBoundingBox();
 			 size = boundingB.getHalfSize(); 
              size *= 0.96f;   // Bullet margin is a bit bigger so we need a smaller size
                                // (Bullet 2.76 Physics SDK Manual page 18)
              entity->setMaterialName("Examples/RockySpherical");
-             SceneNode *node = mSceneMgr->getRootSceneNode()->createChildSceneNode("SphereNode" + StringConverter::toString(mNumEntitiesInstanced));
+             Ogre::SceneNode *node = mSceneMgr->getRootSceneNode()->createChildSceneNode("SphereNode" + Ogre::StringConverter::toString(mNumEntitiesInstanced));
              node->attachObject(entity);
-			 AxisAlignedBox bb=entity->getBoundingBox();
+			 Ogre::AxisAlignedBox bb=entity->getBoundingBox();
 			 
 			 float factor=2;
              node->scale(factor, factor, factor);   // the cube is too big for us
@@ -254,7 +309,7 @@ void BasicAppWithBullet::throwBall(){
 			 sceneBoxShape= shapeConverter.createConvex();
              // and the Bullet rigid body
              OgreBulletDynamics::RigidBody *defaultBody = new OgreBulletDynamics::RigidBody(
-                   "SphereRigid" + StringConverter::toString(mNumEntitiesInstanced),
+                   "SphereRigid" + Ogre::StringConverter::toString(mNumEntitiesInstanced),
                    mWorld);
              defaultBody->setShape(   node,
                                sceneBoxShape,
@@ -262,7 +317,7 @@ void BasicAppWithBullet::throwBall(){
                                0.9f,         // dynamic body friction
                                1.5f,          // dynamic bodymass
                                position,      // starting position of the box
-                               Quaternion(0,0,0,1));// orientation of the box
+                               Ogre::Quaternion(0,0,0,1));// orientation of the box
 			 
              mNumEntitiesInstanced++;    
 			 
@@ -285,7 +340,7 @@ void BasicAppWithBullet::deleteOldBall(Ogre::Real current_time){
 		for (int i=0;i<mBodies.size();i++)
 		{   
 			Ogre::String rbname=mBodies[i]->getName();
-			if (rbname.compare("SphereRigid"+StringConverter::toString(times_to_live[0].id))==0){
+			if (rbname.compare("SphereRigid"+Ogre::StringConverter::toString(times_to_live[0].id))==0){
 
 				delete mBodies[i];
 				delete mShapes[i];
@@ -294,7 +349,7 @@ void BasicAppWithBullet::deleteOldBall(Ogre::Real current_time){
 				break;
 			}
 		}
-		String nameNode="SphereNode"+StringConverter::toString(times_to_live[0].id);
+		Ogre::String nameNode="SphereNode"+Ogre::StringConverter::toString(times_to_live[0].id);
 		(mSceneMgr->getSceneNode(nameNode))->detachAllObjects();
 		//mSceneMgr->destroySceneNode(nameNode);
 		

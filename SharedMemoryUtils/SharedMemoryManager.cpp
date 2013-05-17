@@ -1,4 +1,5 @@
 #include "SharedMemoryManager.h"
+#include "WinBase.h"
 
 
 
@@ -6,14 +7,15 @@ SharedMemoryManager::SharedMemoryManager(void)
 {
 	MemoryName=L"Share Memory Name";
 	mutex=CreateMutexW(NULL, false, L"basicmutex");
-
+	
     hMemory=CreateFileMappingW((HANDLE)0xFFFFFFFF,NULL,PAGE_READWRITE,0,sizeof(double [BufferSize]),MemoryName);
 	if (hMemory==NULL)
-		printf("error while creating the memorymap file");
+		OutputDebugStringW(L"error while mapping\n");
 
     Memory=(double (*)[BufferSize])MapViewOfFile(hMemory,FILE_MAP_WRITE,0,0,sizeof(double [BufferSize]));
     if (hMemory==NULL)
-		printf("error while handleling the memorymap file");
+		OutputDebugStringW(L"error while mapping\n");
+	OutputDebugStringW(L"\n\n\nfile succesfully mapped\n");
 }
 
 
@@ -24,6 +26,7 @@ SharedMemoryManager::~SharedMemoryManager(void)
 }
 
 double * SharedMemoryManager::readFile(){
+	OutputDebugStringW(L"reading file\n");
 	double * answer=new double[BufferSize];
 	WaitForSingleObject(mutex,INFINITE);
 	for (int i=0;i<BufferSize; i++){
@@ -49,16 +52,16 @@ double * SharedMemoryManager::readHeadPosition(){
 
 double * SharedMemoryManager::readCrossBowOrientation(){
 	double * tab=this->readFile();
-	double answer[4]={tab[2],tab[3],tab[4],tab[5]};
+	double answer[4]={tab[2],tab[3],tab[4], tab[5]};
 	return answer;
 }
 
-void SharedMemoryManager::writeCrossBowOrientation(double w, double x, double y, double z){
+void SharedMemoryManager::writeCrossBowOrientation(double orientation[4]){
 	WaitForSingleObject(mutex,INFINITE);
-	(*Memory)[2]=w;
-	(*Memory)[3]=x;
-	(*Memory)[4]=y;
-	(*Memory)[5]=z;
+	(*Memory)[2]=orientation[0];
+	(*Memory)[3]=orientation[1];
+	(*Memory)[4]=orientation[2];
+	(*Memory)[5]=orientation[3];
 	ReleaseMutex(mutex);
 }
 
