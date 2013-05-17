@@ -45,7 +45,9 @@ protected:
 	Ogre::Vector3 * scene_center;
 	Ogre::SceneNode* crossbowNode;
 	Ogre::SceneNode* ninjaNode;
-	static const int distance =500;
+	int time;
+	int amplitude;
+
 };
 
 #endif // #ifndef __BasicSceneApplication_h_
